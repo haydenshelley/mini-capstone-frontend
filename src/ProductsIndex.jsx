@@ -8,12 +8,15 @@ export function ProductsIndex(props) {
             {product.name.charAt(0).toUpperCase() + product.name.slice(1)}
           </h3>
           <p>Price: ${product.price}</p>
-          <p>Description: {product.description}</p>
           {product.images.map((image) => (
             <div key={image.id}>
               <img src={image.url}></img>
             </div>
           ))}
+          <button onClick={() => props.onShowProduct(product)}>
+            More Info
+          </button>
+          <hr />
         </div>
       ))}
     </div>
