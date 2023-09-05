@@ -4,6 +4,7 @@ import { ProductsIndex } from "./ProductsIndex";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { ProductNew } from "./ProductNew";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,15 @@ export function Content() {
     });
   };
 
+  const handleProductsCreate = (params, successCallBack) => {
+    axios
+      .post("http://localhost:3000/products.json", params)
+      .then((response) => {
+        setProducts([...products, response.data]);
+        successCallBack;
+      });
+  };
+
   useEffect(handleProductsIndex, []);
 
   return (
@@ -22,6 +32,7 @@ export function Content() {
       <Login />
       <LogoutLink />
       <ProductsIndex products={products} />
+      <ProductNew onProductsCreate={handleProductsCreate} />
       <Signup />
     </div>
   );
