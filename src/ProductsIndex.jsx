@@ -18,7 +18,6 @@ export function ProductsIndex(props) {
           </button> */}
           <a href={`/products/${product.id}`}>More Info</a>
           <br />
-          <a href={`/products/${product.id}/edit`}>Update</a>
           <hr />
         </div>
       ))}

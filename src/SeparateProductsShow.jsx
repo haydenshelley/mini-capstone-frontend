@@ -42,6 +42,8 @@ export function SeparateProductsShow() {
         <br />
         <button>Add to Cart</button>
       </form>
+      <br />
+      <a href={`/products/${product.id}/edit`}>Update</a>
     </div>
   );
 }
