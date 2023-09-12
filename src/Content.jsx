@@ -8,6 +8,7 @@ import { ProductNew } from "./ProductNew";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductShow";
 import { Routes, Route } from "react-router-dom";
+import { CartedProductsIndex } from "./CartedProductsIndex";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -71,6 +72,9 @@ export function Content() {
   return (
     <div>
       <h1>Capstone Store</h1>
+      <Routes>
+        <Route path="/cart" element={<CartedProductsIndex />} />
+      </Routes>
       <Login />
       <LogoutLink />
       <ProductsIndex products={products} onShowProduct={handleShowProduct} />
@@ -83,7 +87,6 @@ export function Content() {
       </Modal>
       <ProductNew onProductsCreate={handleProductsCreate} />
       <Signup />
-      <Routes></Routes>
     </div>
   );
 }
