@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC, ReactElement } from "react";
 import { ProductsIndex } from "./ProductsIndex";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
@@ -7,6 +7,7 @@ import { LogoutLink } from "./LogoutLink";
 import { ProductNew } from "./ProductNew";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductShow";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -82,6 +83,7 @@ export function Content() {
       </Modal>
       <ProductNew onProductsCreate={handleProductsCreate} />
       <Signup />
+      <Routes></Routes>
     </div>
   );
 }
