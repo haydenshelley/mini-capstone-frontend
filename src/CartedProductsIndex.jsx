@@ -14,7 +14,7 @@ export function CartedProductsIndex() {
   const buy = () => {
     axios.post("http://localhost:3000/orders.json").then((response) => {
       console.log(response.data);
-      window.location.href = "/";
+      window.location.href = "/products";
     });
   };
 

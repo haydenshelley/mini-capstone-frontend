@@ -3,12 +3,13 @@ import { useState, useEffect, FC, ReactElement } from "react";
 import { ProductsIndex } from "./ProductsIndex";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
 import { ProductNew } from "./ProductNew";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductShow";
 import { Routes, Route } from "react-router-dom";
 import { CartedProductsIndex } from "./CartedProductsIndex";
+import { ProductEdit } from "./ProductEdit";
+import { SeparateProductsShow } from "./SeparateProductsShow";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -76,6 +77,7 @@ export function Content() {
         <Route path="/cart" element={<CartedProductsIndex />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/products/:id/edit" element={<ProductEdit />} />
         <Route
           path="/products"
           element={
@@ -85,8 +87,9 @@ export function Content() {
             />
           }
         />
+        <Route path="/products/:id" element={<SeparateProductsShow />} />
         <Route
-          path="/new_product"
+          path="/products/new"
           element={<ProductNew onProductsCreate={handleProductsCreate} />}
         />
       </Routes>

@@ -18,6 +18,7 @@ export function ProductsShow(props) {
       .post("http://localhost:3000/carted_products.json", params)
       .then((response) => {
         console.log(response.data);
+        window.location.href = "/products";
       });
   };
 
