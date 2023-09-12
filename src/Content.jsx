@@ -74,10 +74,22 @@ export function Content() {
       <h1>Capstone Store</h1>
       <Routes>
         <Route path="/cart" element={<CartedProductsIndex />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/products"
+          element={
+            <ProductsIndex
+              products={products}
+              onShowProduct={handleShowProduct}
+            />
+          }
+        />
+        <Route
+          path="/new_product"
+          element={<ProductNew onProductsCreate={handleProductsCreate} />}
+        />
       </Routes>
-      <Login />
-      <LogoutLink />
-      <ProductsIndex products={products} onShowProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleClose}>
         <ProductsShow
           product={currentProduct}
@@ -85,8 +97,6 @@ export function Content() {
           onDestroyProduct={handleDestroyProduct}
         />
       </Modal>
-      <ProductNew onProductsCreate={handleProductsCreate} />
-      <Signup />
     </div>
   );
 }
