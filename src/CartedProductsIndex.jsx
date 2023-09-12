@@ -11,6 +11,13 @@ export function CartedProductsIndex() {
     });
   };
 
+  const buy = () => {
+    axios.post("http://localhost:3000/orders.json").then((response) => {
+      console.log(response.data);
+      window.location.href = "/";
+    });
+  };
+
   useEffect(getCartedProducts, []);
 
   return (
@@ -18,11 +25,16 @@ export function CartedProductsIndex() {
       <h1>Your Cart</h1>
       {cartedProducts.map((cartedProduct) => (
         <div key={cartedProduct.id}>
-          <p>{cartedProduct.product.name}</p>
-          <p>{cartedProduct.quantity}</p>
+          <p>
+            Item:{" "}
+            {cartedProduct.product.name.charAt(0).toUpperCase() +
+              cartedProduct.product.name.slice(1)}
+          </p>
+          <p>Quantity: {cartedProduct.quantity}</p>
           <hr />
         </div>
       ))}
+      <button onClick={buy}>Checkout</button>
     </div>
   );
 }
